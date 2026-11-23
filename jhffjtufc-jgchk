@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <body>
+
+<h3><em><strong><center> Prueba rápida: Haz clic en "comprar"</center></strong></em></h3>
+<button onclick="iniciar()">1. Empezar prueba</button>
+<button onclick="terminar()">2. Comprar (Tarea)</button>
+
+<p id="resultado"></p>
+ <script>
+    let inicio=0;
+    const registros=[]; 
+
+        function iniciar() {
+            inicio = Date.now(); // Guarda la hora exacta de inicio
+            document.getElementById('resultado').innerText = "Cronómetro coriendo...";
+    }
+
+    function terminar() {
+        if (inicio === 0) return alert ("Primero presiona 'Empezar prueba' ");
+
+        //Calcula los segundos transcurridos
+        const segundos = ((Date.now() - inicio) / 1000).toFixed(2);
+        const usuario = promt("Nombre del usuario:");
+
+        //Guarda y muestra el resultado 
+        registros.push({ usuario, segundos });
+        document.getElementById('resultado').innerText =`✅ ${usuario} tardó ${segundos} segundos.`
+        console.log(registros); // Mira todos los resultados en la consola (F12)
+        inicio = 0; // Reinicia 
+        }
+    
+    
+ </script>
+
+    </body>
+</html>
